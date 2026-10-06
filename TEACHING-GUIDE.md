@@ -61,3 +61,9 @@ Actual safety-critical machinery requires appropriate engineered and validated s
 ## Accessibility and use
 
 Controls use native buttons, labels and range inputs. Students can use the keyboard. A skip link leads to the main content. Reduced-motion preferences start animations paused; students can explicitly resume them. All experiments can be reset. The network diagram scrolls horizontally on small screens rather than shrinking labels until they become unreadable.
+
+## Scaffolded lesson sequence
+
+Default guided mode reduces visible text and controls. It presents 20 steps across the five experiments before the quiz. Each step asks students to watch or try one change, then explains the observed result. “Next step” unlocks after the activity. “Previous” lets students revisit a step. Full explanations remain in free exploration mode.
+
+Suggested teaching pattern: read the short instruction aloud, ask students to predict what will change, press the action button, then discuss the result before proceeding. Use the pause button to stop moving packets or a response comparison. Keep free exploration for students who are ready to test their own scenarios.

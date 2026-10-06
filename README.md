@@ -50,3 +50,11 @@ No real devices are connected. No camera or microphone is accessed. No student d
 The network is illustrative. Real gateway protocol support depends on hardware. Some Wi-Fi devices connect through routers directly. The smart plug’s sensing features are an example, not a claim about all products. Timing and cooling hours are teaching assumptions, not engineering specifications or energy measurements.
 
 The classroom illustration was generated specifically for this site. The lesson structure is based on the supplied Topic 1 IoT Ecosystem teaching deck. The original PowerPoint is not included.
+
+## Guided learning
+
+The site now opens in guided mode. Each lesson presents one short instruction, an action button, and a result. The next step unlocks after that action. Previous steps can be revisited. Use **Explore freely** to reveal the full controls and longer explanations, then return to the guided lesson when ready.
+
+The classroom adds entering students, a rising thermometer and animated cooling airflow. The network follows one message at a time. Data processing animates validation, record reordering and a summary. The five V’s progress through one concept at a time.
+
+`scaffold.js` supplies the guided sequence and focused animations alongside the underlying experiments in `app.js`.
