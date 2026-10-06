@@ -35,7 +35,7 @@ After validation the mean is **25.4 °C**. Aggregation sends one batch mean rath
 
 ## Edge and cloud
 
-Local total response is **8 ms**. Cloud total response is **network round trip + 20 ms**. The deadline is **10 ms**. These values illustrate the source slide’s factory example and are not measured product specifications. Both animations slow time by the same factor of 40. Internet settings are captured when a run begins.
+Local total response is **8 ms**. Cloud total response is **network round trip + 20 ms**. The deadline is **10 ms**. These values illustrate the source slide’s factory example and are not measured product specifications. In free exploration, both animations slow time by the same factor of 40. Guided animations are paced separately so students can follow each network hop. Internet settings are captured when a run begins.
 
 Actual safety-critical machinery requires appropriate engineered and validated safety systems; this page illustrates computation location only.
 
@@ -64,6 +64,12 @@ Controls use native buttons, labels and range inputs. Students can use the keybo
 
 ## Scaffolded lesson sequence
 
-Default guided mode reduces visible text and controls. It presents 20 steps across the five experiments before the quiz. Each step asks students to watch or try one change, then explains the observed result. “Next step” unlocks after the activity. “Previous” lets students revisit a step. Full explanations remain in free exploration mode.
+Default guided mode reduces visible text and controls. It presents 21 steps across the five experiments before the quiz. Each step asks students to watch or try one change, then explains the observed result. “Next step” unlocks after the activity. “Previous” lets students revisit a step. Full explanations remain in free exploration mode.
 
 Suggested teaching pattern: read the short instruction aloud, ask students to predict what will change, press the action button, then discuss the result before proceeding. Use the pause button to stop moving packets or a response comparison. Keep free exploration for students who are ready to test their own scenarios.
+
+## Edge and cloud network diagram
+
+The edge view now shows one factory network and a remote cloud service. The green route stays inside the factory: hand sensor, edge controller, robot. The orange outbound route uses the gateway and internet to reach the cloud. Its return route takes a STOP command back through the internet and gateway to the robot.
+
+The three guided steps trace the local route, the cloud round trip, and both routes with a broken internet link. Phase captions describe where the reading or command is at that moment. The separate time labels describe illustrative total response times, including processing. The local example is 8 ms, the guided cloud example is 100 ms and the deadline is 10 ms.

@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Classroom Lab · The IoT Ecosystem</title>
 <meta name="description" content="Explore IoT devices, gateways, platforms, edge computing and the five V’s through an interactive smart classroom.">
-<link rel="stylesheet" href="styles.css"><script defer src="app.js"></script><script defer src="scaffold.js"></script>
+<link rel="stylesheet" href="styles.css?v=edge-map-3"><script defer src="app.js?v=edge-map-3"></script><script defer src="scaffold.js?v=edge-map-3"></script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -45,7 +45,27 @@
 <section id="edge" class="view" aria-labelledby="edge-title" hidden>
 <div class="section-heading"><div><p class="eyebrow">SLIDE 12</p><h2 id="edge-title">Where should the decision happen?</h2></div><p>A factory robot detects a hand.<br>Its stop deadline is 10 milliseconds.</p></div>
 <div class="edge-controls"><label>Simulated network round trip <output id="latency-out">200 ms</output><input id="latency" type="range" min="20" max="800" step="20" value="200"></label><label><input id="edge-internet" type="checkbox" checked> Internet available</label><button id="edge-run" class="primary">Detect hand & compare</button></div>
-<div class="edge-comparison"><article><p class="eyebrow">LOCAL EDGE DECISION</p><h3>Sense here. Respond here.</h3><div class="race-track"><span class="race-dot" id="edge-dot"></span><span>Sensor</span><span>Edge rule</span><span>Stop</span></div><div class="race-result" id="edge-result">Ready</div><p>The edge node takes 8 ms to detect, decide and issue the stop command in this example.</p></article><article><p class="eyebrow">CLOUD DECISION</p><h3>A journey to the cloud and back.</h3><div class="race-track"><span class="race-dot cloud-dot" id="cloud-dot"></span><span>Sensor</span><span>Cloud</span><span>Stop</span></div><div class="race-result" id="cloud-result">Ready</div><p>The example adds 20 ms for processing to your selected network round trip.</p></article></div>
+<div class="edge-network" id="edge-network">
+<div class="edge-map-scroll"><svg id="edge-map" viewBox="0 0 1100 540" role="img" aria-labelledby="edge-map-title edge-map-description">
+<title id="edge-map-title">Local edge and remote cloud response routes</title><desc id="edge-map-description">A sensor and robot share a factory network with an edge controller and gateway. The green local route goes from the sensor to the edge controller to the robot. The orange cloud route goes through the gateway and internet to a remote cloud, then returns a stop command through the gateway to the robot.</desc>
+<defs><marker id="edge-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#438563"/></marker><marker id="cloud-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#cd8353"/></marker></defs>
+<rect class="factory-zone" x="20" y="35" width="685" height="465" rx="24"/><text class="zone-label" x="43" y="65">FACTORY · LOCAL NETWORK</text><text class="zone-label" x="850" y="65">REMOTE CLOUD</text>
+<g class="edge-route"><path d="M200 155 L280 155"/><path d="M440 155 L520 155"/></g>
+<g class="cloud-route"><path d="M120 205 L120 355 L280 355"/><path d="M440 355 L720 355"/><path d="M840 355 L900 355"/><path d="M900 385 L840 385"/><path d="M720 385 L440 385"/><path d="M360 410 L360 470 L690 470 L690 240 L600 240 L600 205"/></g>
+<text class="route-label local-label" x="280" y="240">Reading → nearby decision → STOP</text><text class="route-label" x="60" y="300">Reading goes out</text><text class="route-label return-label" x="390" y="455">STOP command comes back</text>
+<g class="edge-node" id="sensor-node"><rect x="40" y="100" width="160" height="105" rx="18"/><g class="node-symbol" transform="translate(120 128)"><circle r="11"/><circle r="4"/><path d="M-20-9A22 22 0 0 0-20 9M20-9A22 22 0 0 1 20 9"/></g><text x="120" y="166">Hand sensor</text><text class="node-sub" x="120" y="188">DETECTS A HAND</text></g>
+<g class="edge-node" id="edge-controller-node"><rect x="280" y="100" width="160" height="105" rx="18"/><g class="node-symbol" transform="translate(360 127)"><rect x="-11" y="-11" width="22" height="22" rx="3"/><path d="M-18-6H-11M-18 6H-11M11-6H18M11 6H18M-6-18V-11M6-18V-11M-6 11V18M6 11V18"/></g><text x="360" y="166">Edge controller</text><text class="node-sub" x="360" y="188">DECIDES NEARBY</text></g>
+<g class="edge-node" id="robot-node"><rect x="520" y="100" width="160" height="105" rx="18"/><g class="node-symbol robot-arm" transform="translate(600 127)"><path d="M-17 14H17M0 14V3L-12-7L3-18L18-8"/><circle cx="0" cy="3" r="3"/><circle cx="-12" cy="-7" r="3"/><path d="M14-6L18-8L21-3"/></g><text x="600" y="166">Robot</text><text class="node-sub" id="robot-state" x="600" y="188">WAITING FOR A STOP</text></g>
+<g class="edge-node" id="edge-gateway-node"><rect x="280" y="310" width="160" height="100" rx="18"/><g class="node-symbol" transform="translate(360 337)"><rect x="-19" y="-7" width="38" height="16" rx="4"/><path d="M-11-7V-17M11-7V-17"/><circle cx="-10" cy="1" r="1"/><circle cx="-3" cy="1" r="1"/></g><text x="360" y="376">Gateway</text><text class="node-sub" x="360" y="397">CONNECTS THE FACTORY</text></g>
+<g class="edge-node" id="internet-node"><rect x="720" y="310" width="120" height="100" rx="18"/><g class="node-symbol" transform="translate(780 337)"><circle r="14"/><ellipse rx="6" ry="14"/><path d="M-13-5H13M-13 5H13"/></g><text x="780" y="376">Internet</text><text class="node-sub" id="internet-map-state" x="780" y="397">CONNECTED</text></g>
+<g class="edge-node" id="remote-cloud-node"><rect x="900" y="295" width="160" height="125" rx="20"/><g class="node-symbol" transform="translate(980 331)"><path d="M-23 7A12 12 0 0 1-18-16A20 20 0 0 1 18-14A13 13 0 0 1 23 10H-23Z"/></g><text x="980" y="379">Cloud service</text><text class="node-sub" x="980" y="400">DECIDES REMOTELY</text></g>
+<g id="broken-link" visibility="hidden"><circle cx="590" cy="355" r="19"/><path d="M582 347L598 363M598 347L582 363"/><text x="590" y="320">Connection lost</text></g>
+<circle id="edge-dot" class="edge-signal" r="9" cx="200" cy="155" visibility="hidden"/><circle id="cloud-dot" class="cloud-signal" r="9" cx="120" cy="205" visibility="hidden"/>
+</svg></div>
+<div class="edge-map-caption" id="edge-map-caption" aria-live="polite">One sensor. Two possible places to decide.</div>
+<div class="edge-map-legend"><span><i class="green"></i> Local route</span><span><i class="orange"></i> Cloud round trip</span><span>Stop deadline: <strong>10 ms</strong></span></div>
+</div>
+<div class="edge-results"><div><span>LOCAL EDGE</span><strong class="race-result" id="edge-result">Ready</strong></div><div><span>REMOTE CLOUD</span><strong class="race-result" id="cloud-result">Ready</strong></div></div>
 <p class="small" id="edge-note" aria-live="polite">Animation is slowed down for visibility. Timing values are illustrative, not measurements of real equipment.</p>
 <div class="takeaway"><span>CONNECTION</span><p>The classroom can use the same pattern: local lighting rules keep working during a cloud outage. Cloud platforms remain useful for long-term analysis across many classrooms.</p></div>
 </section>

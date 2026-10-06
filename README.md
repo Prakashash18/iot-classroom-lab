@@ -58,3 +58,5 @@ The site now opens in guided mode. Each lesson presents one short instruction, a
 The classroom adds entering students, a rising thermometer and animated cooling airflow. The network follows one message at a time. Data processing animates validation, record reordering and a summary. The five V’s progress through one concept at a time.
 
 `scaffold.js` supplies the guided sequence and focused animations alongside the underlying experiments in `app.js`.
+
+The edge-versus-cloud view uses a network diagram with sensor, local controller, gateway, internet, cloud service and robot nodes. Animated signals trace the outward reading and returning STOP command. A broken-link marker shows why the local route works offline.
