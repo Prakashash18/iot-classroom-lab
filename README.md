@@ -60,3 +60,7 @@ The classroom adds entering students, a rising thermometer and animated cooling 
 `scaffold.js` supplies the guided sequence and focused animations alongside the underlying experiments in `app.js`.
 
 The edge-versus-cloud view uses a network diagram with sensor, local controller, gateway, internet, cloud service and robot nodes. Animated signals trace the outward reading and returning STOP command. A broken-link marker shows why the local route works offline.
+
+## Topic 1 short-answer practice
+
+Open `practice/` for a separate graphic-led short-answer activity. It has 15 questions, spelling-tolerant concept checking, hint-only feedback, saved local progress and retries. The completion target is 12 correct answers (80%). The detailed activity guide is in `practice/README.md`.
